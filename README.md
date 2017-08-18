@@ -13,3 +13,6 @@ Notes of postgres query
 ## Process and memory
 
 ## Cache mechansim
+
+## Related repo
+* https://github.com/jicahoo/db-posgres-sql
