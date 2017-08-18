@@ -20,9 +20,11 @@ INSERT INTO fake_snap (id, oneSnap, twoSnap, description)
 ```
 ## Query Plan
 
-## Slow query pattern:
+## Slow query pattern and improve tips
 ### Use expression or function call in JOIN's condition.
 * If you do so, query plan can't leverage index. think one example.
+### IN vs IN VALUES
+* VALUES is a temp table. So query plan can JOIN.
 
 ### Multiple self JOINS
 * We can leverage CASE WHEN to dedup slow self JOINS.
