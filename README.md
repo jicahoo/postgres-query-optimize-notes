@@ -23,6 +23,10 @@ INSERT INTO fake_snap (id, oneSnap, twoSnap, description)
 ## Slow query pattern:
 ### Multiple self JOINS
 * We can leverage CASE WHEN to dedup slow self JOINS.
+* Think why nested loop is, sometimes, better than hash join when there is index? 
+   * HashJoin need Seq scan both of jonied tables.
+   * If there index, for every loop, it can leverage the index of find the data. It won't need to load all data of the joined table.
+
 * Table and data
 ```SQL
 CREATE TABLE fake_snap (id INTEGER, oneSnap INTEGER, twoSnap INTEGER, description TEXT);
