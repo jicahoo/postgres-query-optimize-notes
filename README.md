@@ -48,6 +48,11 @@ select snap1.id, CASE WHEN snap1.onesnap is not null THEN snap2.id ELSE NULL END
 select snap1.id, snap2.id, snap2.description, snap3.id, snap3.description from fake_snap snap1 LEFT JOIN fake_snap snap2  ON snap1.onesnap = snap2.id LEFT JOIN fake_snap snap3 ON snap1.twosnap = snap3.id offset 1000 limit 2000;
 ```
 
+* 17 seconds (there is index on id). It is slow since we used expression in '=', so the query plan can't leverage index. So avoid it.
+```sql
+select snap1.id, CASE WHEN snap1.onesnap is not null THEN snap2.id ELSE NULL END AS snap2_id_1, CASE WHEN snap1.onesnap is not null THEN snap2.description ELSE NULL END AS snap2_desc_1, CASE WHEN snap1.twosnap is not null THEN snap2.id ELSE NULL END AS snap2_id_2, CASE WHEN snap1.twosnap is not null THEN snap2.description ELSE NULL END AS snap2_desc_2 from fake_snap snap1 LEFT JOIN fake_snap snap2  ON (snap1.onesnap = snap2.id  or  snap1.twosnap = (snap2.id+1-1)) offset 1000 limit 2000;
+```
+
 * 13448.501 ms (there is no index on id) Slow because nested loop O(m*n). 
 ```sql
 select snap1.id, CASE WHEN snap1.onesnap is not null THEN snap2.id ELSE NULL END AS snap2_id_1, CASE WHEN snap1.onesnap is not null THEN snap2.description ELSE NULL END AS snap2_desc_1, CASE WHEN snap1.twosnap is not null THEN snap2.id ELSE NULL END AS snap2_id_2, CASE WHEN snap1.twosnap is not null THEN snap2.description ELSE NULL END AS snap2_desc_2 from fake_snap snap1 LEFT JOIN fake_snap snap2  ON (snap1.onesnap = snap2.id  or  snap1.twosnap = snap2.id) offset 1000 limit 2000;
@@ -56,7 +61,6 @@ select snap1.id, CASE WHEN snap1.onesnap is not null THEN snap2.id ELSE NULL END
 ```sql
 select snap1.id, snap2.id, snap2.description, snap3.id, snap3.description from fake_snap snap1 LEFT JOIN fake_snap snap2  ON snap1.onesnap = snap2.id LEFT JOIN fake_snap snap3 ON snap1.twosnap = snap3.id offset 1000 limit 2000;
 ```
-
 
 ## Process and memory
 
