@@ -21,6 +21,9 @@ INSERT INTO fake_snap (id, oneSnap, twoSnap, description)
 ## Query Plan
 
 ## Slow query pattern:
+### Use expression or function call in JOIN's condition.
+* If you do so, query plan can't leverage index. think one example.
+
 ### Multiple self JOINS
 * We can leverage CASE WHEN to dedup slow self JOINS.
 * Think why nested loop is, sometimes, better than hash join when there is index? 
