@@ -5,7 +5,9 @@ Notes of postgres query
 ## Index
 
 ## Generate big table
-
+```sql
+create table t_random as select s as id, md5(random()::text) as decription from generate_Series(1,5) s; 
+```
 ## Query Plan
 
 ## Slow query pattern:
