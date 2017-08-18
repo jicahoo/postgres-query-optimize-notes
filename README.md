@@ -1,7 +1,7 @@
 # postgres-query-optimize-notes
 Notes of postgres query
 
-
+## Common optiomize measurements.
 ## Index
 
 ## Generate big table
