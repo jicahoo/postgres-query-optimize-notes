@@ -10,3 +10,4 @@ Notes of postgres query
 
 ## Slow query pattern:
 
+## Process and memory
