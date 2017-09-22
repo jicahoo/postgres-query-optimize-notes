@@ -70,6 +70,7 @@ select snap1.id, snap2.id, snap2.description, snap3.id, snap3.description from f
 ## Process and memory
 
 ## Cache mechansim
+* https://madusudanan.com/blog/understanding-postgres-caching-in-depth/
 
 ## Related repo
 * https://github.com/jicahoo/db-posgres-sql
