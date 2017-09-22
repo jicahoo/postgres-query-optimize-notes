@@ -71,6 +71,6 @@ select snap1.id, snap2.id, snap2.description, snap3.id, snap3.description from f
 
 ## Cache mechansim
 * https://madusudanan.com/blog/understanding-postgres-caching-in-depth/
-
+* http://fibrevillage.com/database/134-useful-sqls-to-check-contents-of-postgresql-shared-buffer 
 ## Related repo
 * https://github.com/jicahoo/db-posgres-sql
