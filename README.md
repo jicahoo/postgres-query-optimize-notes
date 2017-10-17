@@ -15,7 +15,7 @@ Notes of postgres query
 * 
 
 ## In query plan, how to estimate the size of result
-* https://www.postgresql.org/docs/current/static/row-estimation-examples.html
+* https://www.postgresql.org/docs/current/static/row-estimation-examples.html keywords: histgram, MCV(most common values)
 
 ## Common optimize measurements.
 ## Index
