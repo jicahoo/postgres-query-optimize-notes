@@ -11,6 +11,7 @@ Notes of postgres query
 * Avoid UNION ALL? UNION vs UNION ALL? Index can't be leveraged?
 * TABLE, INDEX, TEMP TABLE.
 * Query Plan: InitPlan -- One-time function call and remember the result ($N) to be used in other places.
+* Some DB connection middleware will use Prepared statement. The performance of preparted statement and direct statement (sql) are often differrent. 
 
 
 ## Common optimize measurements.
