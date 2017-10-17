@@ -9,6 +9,8 @@ Notes of postgres query
 * Postgres is good at handling many concurrent queries and each query involve not too much data. 
 * Avoid unanchored text query StrColumn like '%foo%'. Or try pg\_trgm index.
 * Avoid UNION ALL? UNION vs UNION ALL? Index can't be leveraged?
+* TABLE, INDEX, TEMP TABLE.
+* Query Plan: InitPlan -- One-time function call and remember the result ($N) to be used in other places.
 
 
 ## Common optimize measurements.
