@@ -1,6 +1,13 @@
 # postgres-query-optimize-notes
 Notes of postgres query
 
+## Notes of query performance
+* Gigantic IN clause is problematic; Replace it with IN VALUES which will create temp table.
+* CTE a.k.a WITH clause, it is not temp table, just expression or sub query.
+* Hash Join consume memory. May generate many temp files for buckets if there is no enough work memory, which lead to bad performance. Be cautious.
+* Avoid join based on function call or expression, unless you can add expression index on it.
+
+
 ## Common optimize measurements.
 ## Index
 
