@@ -90,3 +90,6 @@ select snap1.id, snap2.id, snap2.description, snap3.id, snap3.description from f
 * http://fibrevillage.com/database/134-useful-sqls-to-check-contents-of-postgresql-shared-buffer 
 ## Related repo
 * https://github.com/jicahoo/db-posgres-sql
+
+## Reference:
+* http://pydanny-event-notes.readthedocs.io/en/latest/DjangoConEurope2012/10-steps-to-better-postgresql-performance.html
